@@ -610,6 +610,8 @@
             if (this.endDate == null) return;
 
             this.calculateChosenLabel();
+
+            this.element.trigger('update.daterangepicker', this);
         },
 
         renderCalendar: function(side) {
@@ -833,7 +835,7 @@
                     if (!disabled)
                         cname += 'available';
 
-                    html += '<td class="' + cname.replace(/^\s+|\s+$/g, '') + '" data-title="' + 'r' + row + 'c' + col + '">' + calendar[row][col].date() + '</td>';
+                    html += '<td class="' + cname.replace(/^\s+|\s+$/g, '') + '" data-title="' + 'r' + row + 'c' + col + '" data-date="' + calendar[row][col].format('YYYY-MM-DD') + '">' + calendar[row][col].date() + '</td>';
 
                 }
                 html += '</tr>';
